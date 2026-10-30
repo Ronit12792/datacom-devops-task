@@ -1,0 +1,31 @@
+
+name: Datacom Cloud Demo
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Display application name
+        run: echo "Application name is $APP_NAME"
+        env:
+          APP_NAME: ${{ vars.APP_NAME }}
+
+      - name: Welcome message
+        run: echo "Welcome to Datacom GitHub Actions!"
+
+      - name: Check working directory
+        run: pwd
+
+      - name: List repository files
+        run: ls -la
